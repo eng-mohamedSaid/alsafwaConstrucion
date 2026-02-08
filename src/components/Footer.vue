@@ -6,6 +6,7 @@
       </a>
 
       <p class="add-animation" animation-class="come-up">{{ $t("FOOTER.ADDRESS") }}</p>
+      <p class="add-animation" animation-class="come-up">{{ $t("FOOTER.SAUDI") }}</p>
     </div>
 
     <div id="contact" class="contact flex flex-col">
@@ -46,9 +47,9 @@
   padding: 2.5rem 0;
 }
 .logo {
-  max-width: 180px;
+  max-width: 110px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .contact {
   align-items: flex-start;
