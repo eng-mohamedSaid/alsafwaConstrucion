@@ -111,8 +111,8 @@ export default {
       "We implement hard landscape works such as leveling, curb stones installing, implement sidewalks, swimming pools and water features according to specifications and everything necessary to complete the work in accordance with industry principles.",
   },
   FOOTER: {
-    ADDRESS: "Jeddah - 3302 Abu Al-Fadl Al-Halabi",
-    SAUDI: "Kingdom of Saudi Arabia",
+    ADDRESS: "El Shorouk City, 2nd District East",
+    SAUDI: "Cairo",
   },
 
   CONTACT: "Contact Us",
