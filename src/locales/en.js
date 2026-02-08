@@ -1,5 +1,6 @@
 export default {
-  TITLE: "Al_Safwa AlMomayza Construction and Contracting",
+  TITLE: "El Sheikh Group for Construction and Contracting",
+    TITLE_1: "El Sheikh Group",
   NAVBAR: {
     MAIN: "Home",
     SERVICES: "Our Services",
@@ -15,8 +16,9 @@ export default {
   },
 
   WHO_US: "About Us",
-  ABOUT_US:
-    "Al-Safwa Al-Mumayaza Company is specialized in the field of concrete works and interior and exterior finishes in the Kingdom of Saudi Arabia. The company is based in Jeddah and relies on the concept of comprehensive quality. It ensures the possession of engineering, technical, and administrative staff to provide the best service quality to the client, taking into account the execution period, cost, and the least supervision ratio in the Kingdom. Post-execution warranty is also considered a fundamental pillar for maintaining the establishment's relationship with clients.",
+  ABOUT_US:"El Sheikh Group stands as a leading entity combining deep expertise with innovation in the construction world. We are committed to translating ambitious visions into reality, delivering integrated engineering solutions that exceed expectations regionally and internationally through our cohesive branches:",
+  DESCRIPTION_1: "In Egypt (Al-Pharaonia): Our core pillar in Cairo and Sharm El Sheikh, blending architectural heritage with modern technology to deliver sustainable mega-projects for tourism and urban sectors.",
+  DESCRIPTION_2: "In KSA (Al-Safwa Al-Momayaza): Our strategic arm contributing to the Kingdom’s Vision, focusing on executing high-end projects that adhere to the highest global standards of quality.",
   DOWNLOAD_PROFILE: "Download profile",
 
   SERVICES: {
@@ -115,4 +117,16 @@ export default {
 
   CONTACT: "Contact Us",
   PHONE_NUMBER: "+966 56 973 4699",
+
+  COMPANIES: {
+    TITLE: "Our Companies",
+    SAUDI: {
+      NAME: "Al Safwa Al Momayza Contracting Company",
+      DESCRIPTION: "A leading name in Saudi Arabia's construction sector, dedicated to building architectural landmarks with quality and innovation. We provide integrated solutions—from concept to on-time delivery—specializing in infrastructure, commercial, industrial, and luxury residential projects. Driven by a skilled engineering team and modern technology, we prioritize transparency and occupational safety to support the Kingdom's urban vision."
+    },
+    EGYPT: {
+      NAME: "Al Pharaonic Construction & Building",
+      DESCRIPTION: "A premier firm in general contracting, finishing, and concrete works. We pride ourselves on a professional engineering team capable of delivering aesthetic precision and timely execution. Specializing in residential and commercial sectors, we handle everything from structural frames to interior/exterior finishes. Our successful track record includes key projects in El Shorouk City (3rd District) and the 5th Settlement (Beit Al-Watan: 2nd, 4th, & 8th Districts)."
+    }
+  }
 };

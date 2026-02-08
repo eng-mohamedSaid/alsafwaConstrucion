@@ -2,8 +2,9 @@
   <div>
     <header class="navbar-container">
       <!-- logo -->
-      <a class="logo" href="#hero">
-        <img src="../assets/images/logo.svg" alt="logo" />
+      <a class="logo-wrapper" href="#hero">
+        <img class="logo" src="../assets/images/elsheikh-groups-icon.svg" alt="logo" />
+        <p class="logo-text">{{ $t("TITLE_1") }}</p>
       </a>
 
       <nav class="navbar-links-desktop">
@@ -100,9 +101,17 @@ onMounted(() => {
   box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-out;
 }
+.logo-wrapper{
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+.logo-text{
+  font-size: 26px;
+  font-weight: 600;
+}
 .logo {
-  max-width: 90px;
-  width: 100%;
+  width: 30px;
 }
 .navbar-links-desktop {
   display: flex;
@@ -187,7 +196,10 @@ onMounted(() => {
 }
 @media only screen and (max-width: 768px) {
   .logo {
-    max-width: 75px;
+    width: 23px;
+  }
+  .logo-text{
+    font-size: 18px;
   }
   .navbar-links-desktop {
     display: none;

@@ -5,6 +5,12 @@
       <p class="description add-animation" animation-class="come-up">
         {{ $t("ABOUT_US") }}
       </p>
+      <p class="description add-animation" animation-class="come-up">
+        {{ $t("DESCRIPTION_1") }}
+      </p>
+      <p class="description add-animation" animation-class="come-up">
+        {{ $t("DESCRIPTION_2") }}
+      </p>
 
       <a class="hero-button" :href="profile" download>{{ $t("DOWNLOAD_PROFILE") }}</a>
     </div>

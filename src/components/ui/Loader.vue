@@ -1,10 +1,10 @@
 <template>
   <div class="loader-container">
     <div class="loader">
-      <img class="logo-icon" src="../../assets/images/logo-icon.svg" />
+      <img class="logo-icon" src="../../assets/images/elsheikh-groups-icon.svg" />
 
-      <p class="alsafwa">AL SAFWA</p>
-      <p class="construction">CONSTRUCTION</p>
+      <p class="alsafwa">AL El Sheikh</p>
+      <p class="construction">Group</p>
     </div>
   </div>
 </template>
@@ -30,14 +30,14 @@
 .alsafwa {
   font-size: 2.3rem;
   font-weight: bold;
-  color: var(--color-orange);
+  color: var(--color-dark);
   animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .construction {
   font-size: 1.5rem;
   margin-top: -28px;
   font-weight: 500;
-  color: var(--color-grey);
+  color: var(--color-dark);
   animation: slide-in-bottom 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 

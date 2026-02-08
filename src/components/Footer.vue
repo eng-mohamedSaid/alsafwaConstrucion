@@ -2,7 +2,7 @@
   <div class="footer flex">
     <div class="flex flex-col">
       <a class="logo add-animation" animation-class="fade-in" href="#hero">
-        <img src="../assets/images/logo.svg" alt="logo" />
+        <img src="../assets/images/elsheikh-groups-logo.svg" alt="logo" />
       </a>
 
       <p class="add-animation" animation-class="come-up">{{ $t("FOOTER.ADDRESS") }}</p>
