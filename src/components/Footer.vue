@@ -5,13 +5,23 @@
         <img src="../assets/images/elsheikh-groups-logo.svg" alt="logo" />
       </a>
 
-      <p class="add-animation" animation-class="come-up">{{ $t("FOOTER.ADDRESS") }}</p>
-      <p class="add-animation" animation-class="come-up">{{ $t("FOOTER.SAUDI") }}</p>
+      <p class="add-animation" animation-class="come-up">
+        {{ $t("FOOTER.ADDRESS") }}
+      </p>
+      <p class="add-animation" animation-class="come-up">
+        {{ $t("FOOTER.SAUDI") }}
+      </p>
     </div>
 
     <div id="contact" class="contact flex flex-col">
-      <h1 class="add-animation" animation-class="fade-in">{{ $t("CONTACT") }}</h1>
-      <a class="contact-box flex add-animation" animation-class="come-up" href="mailto:info@alsafwaconstruction.com">
+      <h1 class="add-animation" animation-class="fade-in">
+        {{ $t("CONTACT") }}
+      </h1>
+      <a
+        class="contact-box flex add-animation"
+        animation-class="come-up"
+        href="mailto:info@alsafwaconstruction.com"
+      >
         <img class="icon" src="../assets/images/email.svg" alt="logo" />
         <p>ahmed@elsheikh-groups.com</p>
       </a>
@@ -23,7 +33,7 @@
         target="_blank"
       >
         <img class="icon" src="../assets/images/phone.svg" alt="logo" />
-        <p dir="ltr">+20 01080547475</p>
+        <p dir="ltr">+20 01080577447</p>
       </a>
       <a
         class="contact-box flex add-animation"
@@ -32,7 +42,7 @@
         target="_blank"
       >
         <img class="icon" src="../assets/images/phone.svg" alt="logo" />
-        <p dir="ltr">+20 01080577447</p>
+        <p dir="ltr">+20 01080547475</p>
       </a>
     </div>
   </div>
