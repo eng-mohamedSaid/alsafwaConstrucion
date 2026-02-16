@@ -51,10 +51,8 @@ import ContentCard from "./ui/ContentCard.vue";
 }
 
 .main-title {
-  font-size: 2.5rem;
-  color: var(
-    --color-dark
-  ); /* Assuming black/dark text variable exists or default */
+  font-size: 2rem;
+  color: var(--color-dark);
   margin-bottom: 3rem;
   text-align: center;
   position: relative;

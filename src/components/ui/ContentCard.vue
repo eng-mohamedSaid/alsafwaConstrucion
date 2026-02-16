@@ -180,6 +180,8 @@ defineProps({
     right: 50%;
     transform: translateX(50%);
     left: auto;
+  }
+  [dir="ltr"] .card-name::before {
     right: 50%;
     transform: translateX(50%);
     left: auto;
@@ -188,6 +190,16 @@ defineProps({
 
 .content-card.full-width .logo-wrapper {
   padding: 0;
+}
+
+.card-logo {
+  max-height: 100px;
+}
+.card-name {
+  font-size: 1.3rem;
+}
+.card-desc {
+  font-size: 1rem;
 }
 
 .content-card.full-width .card-logo {
@@ -200,8 +212,7 @@ defineProps({
 
 @media (max-width: 900px) {
   .content-card.full-width .card-logo {
-    height: 300px;
-    width: 100%;
+    height: 280px;
   }
 }
 </style>

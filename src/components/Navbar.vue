@@ -3,7 +3,11 @@
     <header class="navbar-container">
       <!-- logo -->
       <a class="logo-wrapper" href="#hero">
-        <img class="logo" src="../assets/images/elsheikh-groups-icon.svg" alt="logo" />
+        <img
+          class="logo"
+          src="../assets/images/elsheikh-groups-icon.svg"
+          alt="logo"
+        />
         <p class="logo-text">{{ $t("TITLE_1") }}</p>
       </a>
 
@@ -23,10 +27,19 @@
             class="translation-icon"
             alt="arabic to english icon"
           />
-          <img v-else src="../assets/images/english.svg" class="translation-icon" alt="english to arabic icon" />
+          <img
+            v-else
+            src="../assets/images/english.svg"
+            class="translation-icon"
+            alt="english to arabic icon"
+          />
         </button>
         <!-- toggle-menu mobile -->
-        <div class="toggle-menu" @click="toggleExpandNav" :class="{ active: expandNav }">
+        <div
+          class="toggle-menu"
+          @click="toggleExpandNav"
+          :class="{ active: expandNav }"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -39,7 +52,9 @@
       <div v-show="expandNav" class="mobile-nav">
         <nav class="navbar-links-mobile flex flex-col">
           <a class="navbar-link" href="#hero">{{ $t("NAVBAR.MAIN") }}</a>
-          <a class="navbar-link" href="#services">{{ $t("NAVBAR.SERVICES") }}</a>
+          <a class="navbar-link" href="#services">{{
+            $t("NAVBAR.SERVICES")
+          }}</a>
           <!-- <a class="navbar-link" href="#about">{{ $t("NAVBAR.WHO_US") }}</a> -->
           <a class="navbar-link" href="#contact">{{ $t("NAVBAR.CONTACT") }}</a>
         </nav>
@@ -69,6 +84,11 @@ const changeLanguage = () => {
   //   refresh the title
   document.title = i18n.t("TITLE");
   document.body.dir = i18n.locale.value === "ar" ? "rtl" : "ltr";
+
+  // Update URL to reflect change for marketing purposes
+  const url = new URL(window.location);
+  url.searchParams.set("lang", newLocale);
+  window.history.pushState({}, "", url);
 };
 
 onMounted(() => {
@@ -101,12 +121,12 @@ onMounted(() => {
   box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-out;
 }
-.logo-wrapper{
+.logo-wrapper {
   display: flex;
   align-items: end;
   gap: 10px;
 }
-.logo-text{
+.logo-text {
   font-size: 26px;
   font-weight: 600;
 }
@@ -198,7 +218,7 @@ onMounted(() => {
   .logo {
     width: 23px;
   }
-  .logo-text{
+  .logo-text {
     font-size: 18px;
   }
   .navbar-links-desktop {
@@ -249,7 +269,9 @@ onMounted(() => {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: opacity 0.5s, transform 0.5s;
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
 }
 
 .slide-enter-from,

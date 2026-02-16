@@ -26,10 +26,35 @@
           <p class="form-description">
             {{ description }}
           </p>
-          <div class="form-images flex">
-            <Carousel v-bind="config">
-              <Slide v-for="image in images" :key="image">
-                <img class="img-carousel" alt="project image" :src="image" />
+          <div class="form-images flex-column">
+            <Carousel
+              id="gallery"
+              v-bind="galleryConfig"
+              v-model="currentSlide"
+            >
+              <Slide v-for="(image, index) in images" :key="index">
+                <img :src="image" alt="Gallery Image" class="gallery-image" />
+              </Slide>
+            </Carousel>
+
+            <Carousel
+              id="thumbnails"
+              v-bind="thumbnailsConfig"
+              v-model="currentSlide"
+            >
+              <Slide v-for="(image, index) in images" :key="index">
+                <template #default="{ isActive }">
+                  <div
+                    :class="['thumbnail', { 'is-active': isActive }]"
+                    @click="slideTo(index)"
+                  >
+                    <img
+                      :src="image"
+                      alt="Thumbnail Image"
+                      class="thumbnail-image"
+                    />
+                  </div>
+                </template>
               </Slide>
 
               <template #addons>
@@ -49,6 +74,7 @@ import "vue3-carousel/carousel.css";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 
 const showModal = ref(false);
+const currentSlide = ref(0);
 
 const openModal = () => {
   showModal.value = true;
@@ -60,22 +86,44 @@ const closeModal = () => {
   document.body.style.overflowY = "";
 };
 
+const slideTo = (nextSlide) => (currentSlide.value = nextSlide);
+
 defineProps(["title", "description", "images"]);
 
-const config = {
-  height: 300,
+const galleryConfig = {
   itemsToShow: 1,
-  gap: 10,
   wrapAround: true,
+  slideEffect: "fade",
+  mouseDrag: false,
+  touchDrag: false,
+  height: 400,
+};
+
+const thumbnailsConfig = {
+  height: 80,
+  itemsToShow: 6,
+  wrapAround: true,
+  touchDrag: false,
+  gap: 10,
   breakpoints: {
+    // 300px and up
+    300: {
+      itemsToShow: 3,
+      snapAlign: "center",
+    },
+    // 500px and up
+    500: {
+      itemsToShow: 4,
+      snapAlign: "center",
+    },
     // 700px and up
     700: {
-      itemsToShow: 2,
+      itemsToShow: 5,
       snapAlign: "center",
     },
     // 1024 and up
     1024: {
-      itemsToShow: 2,
+      itemsToShow: 6,
       snapAlign: "start",
     },
   },
@@ -150,16 +198,43 @@ const config = {
   margin-bottom: 40px;
 }
 .form-images {
+  display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 
-.form-images img {
-  max-width: 360px;
+.gallery-image {
+  border-radius: 8px;
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 16px;
 }
+
+#thumbnails {
+  margin-top: 10px;
+}
+
+.thumbnail {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.thumbnail.is-active,
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.thumbnail-image {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .close-button {
   cursor: pointer;
   top: 20px;
@@ -208,13 +283,6 @@ const config = {
   .form {
     width: 90vw;
   }
-  .form-images {
-    gap: 15px;
-  }
-
-  .form-images img {
-    max-width: 27vw;
-  }
 }
 
 @media (max-width: 900px) {
@@ -253,19 +321,6 @@ const config = {
     width: 42vw;
     height: 130px;
   }
-  .form-images {
-    flex-direction: column;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-  .form-images img {
-    /* max-width: 39vw;
-    height: 250px; */
-    max-width: 95%;
-    height: 150px;
-    /* object-fit: contain; */
-  }
   .close-button {
     top: 12px;
   }
@@ -277,14 +332,6 @@ const config = {
     right: 12px;
   }
 }
-/* @media (max-width: 400px) {
-  .modal-button,
-  .modal-button img,
-  .modal-button-overlay {
-    width: 130px;
-    height: 130px;
-  }
-} */
 
 .fade-enter-active,
 .fade-leave-active {
@@ -310,16 +357,12 @@ const config = {
 }
 
 .carousel {
+  --vc-nav-background: rgba(255, 255, 255, 0.7);
+  --vc-nav-border-radius: 100%;
   width: 100%;
-  direction: ltr;
-  /* Force LTR for carousel logic, but images remain correct. Important for navigation arrow placement */
+  direction: ltr; /* Force LTR for carousel logic */
 }
-.img-carousel {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-}
+
 .carousel__slide {
   padding: 5px;
 }

@@ -16,7 +16,7 @@
 <script setup>
 import BaseModal from "./ui/BaseModal.vue";
 
-import { reactive, watch } from "vue";
+import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 
 // Use glob to import all images dynamically

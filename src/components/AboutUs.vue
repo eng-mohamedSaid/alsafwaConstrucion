@@ -1,7 +1,9 @@
 <template>
   <div class="about">
     <div class="about-info flex flex-col">
-      <h1 class="sub-title about-title add-animation" animation-class="fade-in">{{ $t("WHO_US") }}</h1>
+      <h1 class="sub-title about-title add-animation" animation-class="fade-in">
+        {{ $t("WHO_US") }}
+      </h1>
       <p class="description add-animation" animation-class="come-up">
         {{ $t("ABOUT_US") }}
       </p>
@@ -12,10 +14,14 @@
         {{ $t("DESCRIPTION_2") }}
       </p>
 
-      <a class="hero-button" :href="profile" download>{{ $t("DOWNLOAD_PROFILE") }}</a>
+      <a class="hero-button" :href="profile" download>{{
+        $t("DOWNLOAD_PROFILE")
+      }}</a>
     </div>
     <div class="about-services flex flex-col">
-      <h1 class="sub-title add-animation" animation-class="fade-in">{{ $t("HERO.SERVICES") }}</h1>
+      <h1 class="sub-title add-animation" animation-class="fade-in">
+        {{ $t("HERO.SERVICES") }}
+      </h1>
 
       <about-card
         :icon="icon1"
@@ -54,7 +60,8 @@ import AboutCard from "./ui/AboutCard.vue";
 .about-info {
   align-items: flex-start;
   width: 100%;
-  background: linear-gradient(to left, rgba(31, 31, 31, 0.85), rgba(31, 31, 31, 0.85)),
+  background:
+    linear-gradient(to left, rgba(31, 31, 31, 0.85), rgba(31, 31, 31, 0.85)),
     url("../assets/images/about-background.webp");
   color: var(--color-white);
   padding: 4rem 2rem;
@@ -104,7 +111,11 @@ import AboutCard from "./ui/AboutCard.vue";
 .about-services {
   width: 100%;
   max-width: 650px;
-  background: linear-gradient(to left, var(--color-orange), var(--color-golden));
+  background: linear-gradient(
+    to left,
+    var(--color-orange),
+    var(--color-golden)
+  );
   align-items: flex-start;
   padding: 2rem;
 }
