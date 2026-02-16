@@ -7,10 +7,7 @@
         :key="index"
         :title="item.title"
         :description="item.description"
-        :backgroundImage="item.backgroundImage"
-        :image1="item.image1"
-        :image2="item.image2"
-        :image3="item.image3"
+        :images="item.images"
       ></base-modal>
     </div>
   </div>
@@ -19,156 +16,145 @@
 <script setup>
 import BaseModal from "./ui/BaseModal.vue";
 
-import concrete1 from "../assets/images/4-Concrete/1.webp";
-import concrete2 from "../assets/images/4-Concrete/2.webp";
-import concrete3 from "../assets/images/4-Concrete/3.webp";
-
-import interlock1 from "../assets/images/5-Interlock/1.webp";
-import interlock2 from "../assets/images/5-Interlock/2.webp";
-import interlock3 from "../assets/images/5-Interlock/3.webp";
-
-import isolation1 from "../assets/images/6-Isolation/1.webp";
-import isolation2 from "../assets/images/6-Isolation/2.webp";
-import isolation3 from "../assets/images/6-Isolation/3.webp";
-
-import infra1 from "../assets/images/7-Infra/1.webp";
-import infra2 from "../assets/images/7-Infra/2.webp";
-import infra3 from "../assets/images/7-Infra/3.webp";
-
-import walls1 from "../assets/images/8-Walls/1.webp";
-import walls2 from "../assets/images/8-Walls/2.webp";
-import walls3 from "../assets/images/8-Walls/3.webp";
-
-import flooring1 from "../assets/images/9-Flooring/1.webp";
-import flooring2 from "../assets/images/9-Flooring/2.webp";
-import flooring3 from "../assets/images/9-Flooring/3.webp";
-
-import ceiling1 from "../assets/images/10-Ceiling/1.webp";
-import ceiling2 from "../assets/images/10-Ceiling/2.webp";
-import ceiling3 from "../assets/images/10-Ceiling/3.webp";
-
-import cladding1 from "../assets/images/11-Cladding/1.webp";
-import cladding2 from "../assets/images/11-Cladding/2.webp";
-import cladding3 from "../assets/images/11-Cladding/3.webp";
-
-import glass1 from "../assets/images/12-Glass/1.webp";
-import glass2 from "../assets/images/12-Glass/2.webp";
-import glass3 from "../assets/images/12-Glass/3.webp";
-
-import painting1 from "../assets/images/13-Painting/1.webp";
-import painting2 from "../assets/images/13-Painting/2.webp";
-import painting3 from "../assets/images/13-Painting/3.webp";
-
-import doors1 from "../assets/images/14-Doors/1.webp";
-import doors2 from "../assets/images/14-Doors/2.webp";
-import doors3 from "../assets/images/14-Doors/3.webp";
-
-import landscape1 from "../assets/images/15-Landscape/1.webp";
-import landscape2 from "../assets/images/15-Landscape/2.webp";
-import landscape3 from "../assets/images/15-Landscape/3.webp";
-
 import { reactive, watch } from "vue";
 import { useI18n } from "vue-i18n";
+
+// Use glob to import all images dynamically
+const concreteImages = import.meta.glob("../assets/images/4-Concrete/*.webp", {
+  eager: true,
+  as: "url",
+});
+const interlockImages = import.meta.glob(
+  "../assets/images/5-Interlock/*.webp",
+  { eager: true, as: "url" },
+);
+const isolationImages = import.meta.glob(
+  "../assets/images/6-Isolation/*.webp",
+  { eager: true, as: "url" },
+);
+const infraImages = import.meta.glob("../assets/images/7-Infra/*.webp", {
+  eager: true,
+  as: "url",
+});
+const wallsImages = import.meta.glob("../assets/images/8-Walls/*.webp", {
+  eager: true,
+  as: "url",
+});
+const flooringImages = import.meta.glob("../assets/images/9-Flooring/*.webp", {
+  eager: true,
+  as: "url",
+});
+const ceilingImages = import.meta.glob("../assets/images/10-Ceiling/*.webp", {
+  eager: true,
+  as: "url",
+});
+const claddingImages = import.meta.glob("../assets/images/11-Cladding/*.webp", {
+  eager: true,
+  as: "url",
+});
+const glassImages = import.meta.glob("../assets/images/12-Glass/*.webp", {
+  eager: true,
+  as: "url",
+});
+const paintingImages = import.meta.glob("../assets/images/13-Painting/*.webp", {
+  eager: true,
+  as: "url",
+});
+const doorsImages = import.meta.glob("../assets/images/14-Doors/*.webp", {
+  eager: true,
+  as: "url",
+});
+const landscapeImages = import.meta.glob(
+  "../assets/images/15-Landscape/*.webp",
+  { eager: true, as: "url" },
+);
+const electronicImages = import.meta.glob(
+  "../assets/images/16-electronic/*.webp",
+  { eager: true, as: "url" },
+);
+const porslinImages = import.meta.glob("../assets/images/17-porslin/*.webp", {
+  eager: true,
+  as: "url",
+});
+
+// Helper to convert glob object values to array
+const getImages = (globObj) => Object.values(globObj);
 
 const i18n = useI18n({ useScope: "global" });
 const data = reactive([
   {
     title: i18n.t("WORKS_4.TITLE"),
     description: i18n.t("WORKS_4.DESCRIPTION"),
-    image1: concrete1,
-    image2: concrete2,
-    image3: concrete3,
+    images: getImages(concreteImages),
   },
 
   {
     title: i18n.t("WORKS_5.TITLE"),
     description: i18n.t("WORKS_5.DESCRIPTION"),
-    image1: interlock1,
-    image2: interlock2,
-    image3: interlock3,
+    images: getImages(interlockImages),
   },
 
   {
     title: i18n.t("WORKS_6.TITLE"),
     description: i18n.t("WORKS_6.DESCRIPTION"),
-    image1: isolation1,
-    image2: isolation2,
-    image3: isolation3,
+    images: getImages(isolationImages),
   },
   {
     title: i18n.t("WORKS_7.TITLE"),
     description: i18n.t("WORKS_7.DESCRIPTION"),
-    image1: infra1,
-    image2: infra2,
-    image3: infra3,
+    images: getImages(infraImages),
   },
   {
     title: i18n.t("WORKS_8.TITLE"),
     description: i18n.t("WORKS_8.DESCRIPTION"),
-    image1: walls1,
-    image2: walls2,
-    image3: walls3,
+    images: getImages(wallsImages),
   },
   {
     title: i18n.t("WORKS_9.TITLE"),
     description: i18n.t("WORKS_9.DESCRIPTION"),
-    image1: flooring1,
-    image2: flooring2,
-    image3: flooring3,
+    images: getImages(flooringImages),
   },
   {
     title: i18n.t("WORKS_10.TITLE"),
     description: i18n.t("WORKS_10.DESCRIPTION"),
-    image1: ceiling1,
-    image2: ceiling2,
-    image3: ceiling3,
+    images: getImages(ceilingImages),
   },
   {
     title: i18n.t("WORKS_11.TITLE"),
     description: i18n.t("WORKS_11.DESCRIPTION"),
-    image1: cladding1,
-    image2: cladding2,
-    image3: cladding3,
+    images: getImages(claddingImages),
   },
   {
     title: i18n.t("WORKS_12.TITLE"),
     description: i18n.t("WORKS_12.DESCRIPTION"),
-    image1: glass1,
-    image2: glass2,
-    image3: glass3,
+    images: getImages(glassImages),
   },
   {
     title: i18n.t("WORKS_13.TITLE"),
     description: i18n.t("WORKS_13.DESCRIPTION"),
-    image1: painting1,
-    image2: painting2,
-    image3: painting3,
+    images: getImages(paintingImages),
   },
   {
     title: i18n.t("WORKS_14.TITLE"),
     description: i18n.t("WORKS_14.DESCRIPTION"),
-    image1: doors1,
-    image2: doors2,
-    image3: doors3,
+    images: getImages(doorsImages),
   },
   {
     title: i18n.t("WORKS_15.TITLE"),
     description: i18n.t("WORKS_15.DESCRIPTION"),
-    image1: landscape1,
-    image2: landscape2,
-    image3: landscape3,
+    images: getImages(landscapeImages),
+  },
+  {
+    title: i18n.t("WORKS_16.TITLE"),
+    description: i18n.t("WORKS_16.DESCRIPTION"),
+    images: getImages(electronicImages),
+  },
+  {
+    title: i18n.t("WORKS_17.TITLE"),
+    description: i18n.t("WORKS_17.DESCRIPTION"),
+    images: getImages(porslinImages),
   },
 ]);
-
-watch(
-  () => i18n.locale.value,
-  () => {
-    data.forEach((item, index) => {
-      data[index].title = i18n.t(`WORKS_${index + 4}.TITLE`);
-      data[index].description = i18n.t(`WORKS_${index + 4}.DESCRIPTION`);
-    });
-  }
-);
 </script>
 
 <style scoped>

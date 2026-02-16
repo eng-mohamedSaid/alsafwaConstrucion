@@ -9,6 +9,7 @@
     <feature2></feature2>
     <feature3></feature3>
     <modals></modals>
+    <standards></standards>
     <Footer></Footer>
   </div>
 </template>
@@ -24,6 +25,7 @@ import Feature2 from "./components/Feature2.vue";
 import Feature3 from "./components/Feature3.vue";
 import Modals from "./components/Modals.vue";
 import Footer from "./components/Footer.vue";
+import Standards from "./components/Standards.vue";
 
 import { useI18n } from "vue-i18n";
 import { onMounted, ref } from "vue";

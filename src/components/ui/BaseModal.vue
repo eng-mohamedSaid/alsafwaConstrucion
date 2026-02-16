@@ -1,7 +1,11 @@
 <template>
   <div>
-    <button class="modal-button flex add-animation" animation-class="come-up" @click.prevent="openModal">
-      <img class="modal-button-img" alt="feature2 design" :src="image1" />
+    <button
+      class="modal-button flex add-animation"
+      animation-class="come-up"
+      @click.prevent="openModal"
+    >
+      <img class="modal-button-img" alt="feature2 design" :src="images[0]" />
       <div class="modal-button-overlay"></div>
       <p class="">{{ title }}</p>
     </button>
@@ -13,15 +17,25 @@
 
       <transition name="slide" appear>
         <form class="form">
-          <button class="close-button" @click.prevent="closeModal" type="button"></button>
+          <button
+            class="close-button"
+            @click.prevent="closeModal"
+            type="button"
+          ></button>
           <h1 class="form-title">{{ title }}</h1>
           <p class="form-description">
             {{ description }}
           </p>
           <div class="form-images flex">
-            <img class="img-1" alt="feature2 design" :src="image1" />
-            <img class="img-2" alt="feature2 design" :src="image2" />
-            <img class="img-2" alt="feature2 design" :src="image3" />
+            <Carousel v-bind="config">
+              <Slide v-for="image in images" :key="image">
+                <img class="img-carousel" alt="project image" :src="image" />
+              </Slide>
+
+              <template #addons>
+                <Navigation />
+              </template>
+            </Carousel>
           </div>
         </form>
       </transition>
@@ -31,6 +45,8 @@
 
 <script setup>
 import { ref } from "vue";
+import "vue3-carousel/carousel.css";
+import { Carousel, Slide, Navigation } from "vue3-carousel";
 
 const showModal = ref(false);
 
@@ -44,7 +60,26 @@ const closeModal = () => {
   document.body.style.overflowY = "";
 };
 
-defineProps(["title", "description", "image1", "image2", "image3"]);
+defineProps(["title", "description", "images"]);
+
+const config = {
+  height: 300,
+  itemsToShow: 1,
+  gap: 10,
+  wrapAround: true,
+  breakpoints: {
+    // 700px and up
+    700: {
+      itemsToShow: 2,
+      snapAlign: "center",
+    },
+    // 1024 and up
+    1024: {
+      itemsToShow: 2,
+      snapAlign: "start",
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -263,13 +298,38 @@ defineProps(["title", "description", "image1", "image2", "image3"]);
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: opacity 0.5s, transform 0.5s; /* Combine transitions with a comma */
+  transition:
+    opacity 0.5s,
+    transform 0.5s; /* Combine transitions with a comma */
 }
 
 .slide-enter-from,
 .slide-leave-to {
   opacity: 0;
   transform: translateX(-50%) translateY(100vw);
+}
+
+.carousel {
+  width: 100%;
+  direction: ltr;
+  /* Force LTR for carousel logic, but images remain correct. Important for navigation arrow placement */
+}
+.img-carousel {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.carousel__slide {
+  padding: 5px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  background-color: var(--vc-nav-background, rgba(255, 255, 255, 0.8));
+  border-radius: 50%;
+  color: #333;
 }
 
 @media (max-width: 600px) {

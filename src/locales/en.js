@@ -1,6 +1,6 @@
 export default {
   TITLE: "El Sheikh Group for Construction and Contracting",
-    TITLE_1: "El Sheikh Group",
+  TITLE_1: "El Sheikh Group",
   NAVBAR: {
     MAIN: "Home",
     SERVICES: "Our Services",
@@ -16,10 +16,16 @@ export default {
   },
 
   WHO_US: "About Us",
-  ABOUT_US:"El Sheikh Group stands as a leading entity combining deep expertise with innovation in the construction world. We are committed to translating ambitious visions into reality, delivering integrated engineering solutions that exceed expectations regionally and internationally through our cohesive branches:",
+  ABOUT_US: "El Sheikh Group stands as a leading entity combining deep expertise with innovation in the construction world. We are committed to translating ambitious visions into reality, delivering integrated engineering solutions that exceed expectations regionally and internationally through our cohesive branches:",
   DESCRIPTION_1: "In Egypt (Al-Pharaonia): Our core pillar in Cairo and Sharm El Sheikh, blending architectural heritage with modern technology to deliver sustainable mega-projects for tourism and urban sectors.",
   DESCRIPTION_2: "In KSA (Al-Safwa Al-Momayaza): Our strategic arm contributing to the Kingdom’s Vision, focusing on executing high-end projects that adhere to the highest global standards of quality.",
   DOWNLOAD_PROFILE: "Download profile",
+
+  STANDARDS: "Our Standards",
+  PROUD_TITLE_1: "Occupational Safety and Health",
+  PROUD_DESC_1: "EL SHEIKH GROUP is proud of its full compliance with occupational safety and health standards, as it has qualified crews with expertise and high efficiency in following up the application of these instructions, training workers, and assessing risks in order to ensure the safety of individuals, equipment, and private and public properties.",
+  PROUD_TITLE_2: "Quality and Reliability",
+  PROUD_DESC_2: "We, at EL SHEIKH GROUP, are proud of implementing the works with the highest levels of quality and reliability that achieve customer satisfaction. Therefore, there are experienced engineers and technicians who follow up the daily works to ensure that they are implemented with the highest quality and international standards.",
 
   SERVICES: {
     TITLE_1: "Design",
@@ -110,6 +116,16 @@ export default {
     DESCRIPTION:
       "We implement hard landscape works such as leveling, curb stones installing, implement sidewalks, swimming pools and water features according to specifications and everything necessary to complete the work in accordance with industry principles.",
   },
+  WORKS_16: {
+    TITLE: "Electronic Systems",
+    DESCRIPTION:
+      "We supply and install all smart electronic systems, surveillance, and audio systems.",
+  },
+  WORKS_17: {
+    TITLE: "Porcelain Works",
+    DESCRIPTION:
+      "We supply and install all types of porcelain, marble, and granite for floors and walls with modern designs.",
+  },
   FOOTER: {
     ADDRESS: "El Shorouk City, 2nd District East",
     SAUDI: "Cairo",
@@ -127,6 +143,10 @@ export default {
     EGYPT: {
       NAME: "Al Pharaonic Construction & Building",
       DESCRIPTION: "A premier firm in general contracting, finishing, and concrete works. We pride ourselves on a professional engineering team capable of delivering aesthetic precision and timely execution. Specializing in residential and commercial sectors, we handle everything from structural frames to interior/exterior finishes. Our successful track record includes key projects in El Shorouk City (3rd District) and the 5th Settlement (Beit Al-Watan: 2nd, 4th, & 8th Districts)."
+    },
+    SHEIKH: {
+      NAME: "El Sheikh Construction",
+      DESCRIPTION: "One of the leading companies in general contracting, finishing works, and concrete. We aim to be a model of commitment and professionalism through an expert engineering team that turns ideas into reality with aesthetic precision and strict timelines. We specialize in interior and exterior finishes and concrete structures for the residential and commercial sectors using the latest materials. We are proud of a proven track record of success in vital areas including: Sharm El Sheikh - El Tor."
     }
   }
 };
