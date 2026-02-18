@@ -26,39 +26,14 @@
           <p class="form-description">
             {{ description }}
           </p>
-          <div class="form-images flex-column">
-            <Carousel
-              id="gallery"
-              v-bind="galleryConfig"
-              v-model="currentSlide"
-            >
+          <div class="form-images">
+            <Carousel v-bind="carouselConfig">
               <Slide v-for="(image, index) in images" :key="index">
                 <img :src="image" alt="Gallery Image" class="gallery-image" />
               </Slide>
-            </Carousel>
-
-            <Carousel
-              id="thumbnails"
-              v-bind="thumbnailsConfig"
-              v-model="currentSlide"
-            >
-              <Slide v-for="(image, index) in images" :key="index">
-                <template #default="{ isActive }">
-                  <div
-                    :class="['thumbnail', { 'is-active': isActive }]"
-                    @click="slideTo(index)"
-                  >
-                    <img
-                      :src="image"
-                      alt="Thumbnail Image"
-                      class="thumbnail-image"
-                    />
-                  </div>
-                </template>
-              </Slide>
-
               <template #addons>
                 <Navigation />
+                <Pagination />
               </template>
             </Carousel>
           </div>
@@ -71,10 +46,9 @@
 <script setup>
 import { ref } from "vue";
 import "vue3-carousel/carousel.css";
-import { Carousel, Slide, Navigation } from "vue3-carousel";
+import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
 
 const showModal = ref(false);
-const currentSlide = ref(0);
 
 const openModal = () => {
   showModal.value = true;
@@ -86,45 +60,16 @@ const closeModal = () => {
   document.body.style.overflowY = "";
 };
 
-const slideTo = (nextSlide) => (currentSlide.value = nextSlide);
-
 defineProps(["title", "description", "images"]);
 
-const galleryConfig = {
-  itemsToShow: 1,
-  wrapAround: true,
-  slideEffect: "fade",
-  mouseDrag: false,
-  touchDrag: false,
+const carouselConfig = {
   height: 400,
-};
-
-const thumbnailsConfig = {
-  height: 80,
-  itemsToShow: 6,
+  itemsToShow: 1,
+  gap: 5,
   wrapAround: true,
-  touchDrag: false,
-  gap: 10,
   breakpoints: {
-    // 300px and up
-    300: {
-      itemsToShow: 3,
-      snapAlign: "center",
-    },
-    // 500px and up
-    500: {
-      itemsToShow: 4,
-      snapAlign: "center",
-    },
-    // 700px and up
     700: {
-      itemsToShow: 5,
-      snapAlign: "center",
-    },
-    // 1024 and up
-    1024: {
-      itemsToShow: 6,
-      snapAlign: "start",
+      itemsToShow: 2,
     },
   },
 };
@@ -202,7 +147,6 @@ const thumbnailsConfig = {
   flex-direction: column;
   gap: 15px;
 }
-
 .gallery-image {
   border-radius: 8px;
   width: 100%;
@@ -210,31 +154,6 @@ const thumbnailsConfig = {
   object-fit: cover;
   border-radius: 16px;
 }
-
-#thumbnails {
-  margin-top: 10px;
-}
-
-.thumbnail {
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.thumbnail.is-active,
-.thumbnail:hover {
-  opacity: 1;
-}
-
-.thumbnail-image {
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .close-button {
   cursor: pointer;
   top: 20px;
@@ -242,7 +161,6 @@ const thumbnailsConfig = {
   height: 30px;
   position: absolute;
 }
-
 .close-button:before,
 .close-button:after {
   content: "";
@@ -255,26 +173,21 @@ const thumbnailsConfig = {
   transform: translate(-50%, -50%);
   transition: ease-out 0.3s all;
 }
-
 .close-button:before {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-
 .close-button:after {
   transform: translate(-50%, -50%) rotate(45deg);
 }
-
 .close-button:hover:before {
   transform: translate(-50%, -50%) rotate(135deg);
 }
-
 .close-button:hover:after {
   transform: translate(-50%, -50%) rotate(225deg);
 }
 [dir="rtl"] .close-button {
   left: 20px;
 }
-
 [dir="ltr"] .close-button {
   right: 20px;
 }
@@ -284,7 +197,6 @@ const thumbnailsConfig = {
     width: 90vw;
   }
 }
-
 @media (max-width: 900px) {
   .form {
     justify-content: start;
@@ -301,14 +213,12 @@ const thumbnailsConfig = {
     font-size: 16px;
     margin-bottom: 15px;
   }
-
   .modal-button,
   .modal-button img,
   .modal-button-overlay {
     width: 170px;
     height: 100px;
   }
-
   .modal-button p {
     font-size: 20px;
     line-height: 1.2;
@@ -327,9 +237,15 @@ const thumbnailsConfig = {
   [dir="rtl"] .close-button {
     left: 12px;
   }
-
   [dir="ltr"] .close-button {
     right: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .form {
+    width: 96%;
+    padding: 1.2rem;
+    max-height: 100%;
   }
 }
 
@@ -337,19 +253,16 @@ const thumbnailsConfig = {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
-
 .slide-enter-active,
 .slide-leave-active {
   transition:
     opacity 0.5s,
-    transform 0.5s; /* Combine transitions with a comma */
+    transform 0.5s;
 }
-
 .slide-enter-from,
 .slide-leave-to {
   opacity: 0;
@@ -357,28 +270,19 @@ const thumbnailsConfig = {
 }
 
 .carousel {
-  --vc-nav-background: rgba(255, 255, 255, 0.7);
+  --vc-pgn-background-color: rgba(0, 0, 0, 0.5);
+  --vc-pgn-active-color: rgba(0, 0, 0, 1);
+  --vc-nav-background: rgba(255, 255, 255, 0.8);
   --vc-nav-border-radius: 100%;
-  width: 100%;
-  direction: ltr; /* Force LTR for carousel logic */
 }
-
 .carousel__slide {
   padding: 5px;
 }
-
 .carousel__prev,
 .carousel__next {
   box-sizing: content-box;
   background-color: var(--vc-nav-background, rgba(255, 255, 255, 0.8));
   border-radius: 50%;
   color: #333;
-}
-
-@media (max-width: 600px) {
-  .form {
-    width: 95%;
-    padding: 1.2rem;
-  }
 }
 </style>
