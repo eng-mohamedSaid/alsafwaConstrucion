@@ -17,6 +17,26 @@
       <h1 class="add-animation" animation-class="fade-in">
         {{ $t("CONTACT") }}
       </h1>
+
+      <div class="flex phone-box add-animation" animation-class="come-up">
+        <img class="icon" src="../assets/images/phone.svg" alt="logo" />
+        <a
+          class="contact-box"
+          href="https://wa.me/201080577447"
+          target="_blank"
+        >
+          <p dir="ltr">+20 01080577447</p>
+        </a>
+        -
+        <a
+          class="contact-box"
+          href="https://wa.me/201080547475"
+          target="_blank"
+        >
+          <p dir="ltr">+20 01080547475</p>
+        </a>
+      </div>
+
       <a
         class="contact-box flex add-animation"
         animation-class="come-up"
@@ -29,20 +49,11 @@
       <a
         class="contact-box flex add-animation"
         animation-class="come-up"
-        href="https://wa.me/201080547475"
+        href="https://www.facebook.com/share/1AffA8QHsg"
         target="_blank"
       >
-        <img class="icon" src="../assets/images/phone.svg" alt="logo" />
-        <p dir="ltr">+20 01080577447</p>
-      </a>
-      <a
-        class="contact-box flex add-animation"
-        animation-class="come-up"
-        href="https://wa.me/201080577447"
-        target="_blank"
-      >
-        <img class="icon" src="../assets/images/phone.svg" alt="logo" />
-        <p dir="ltr">+20 01080547475</p>
+        <img class="icon" src="../assets/images/facebook.svg" alt="Facebook" />
+        <p>{{ $t("FOOTER.FOLLOW_US") }}</p>
       </a>
     </div>
   </div>
@@ -86,6 +97,9 @@
 }
 .contact-box:hover p {
   color: rgb(150, 91, 35);
+}
+.phone-box {
+  gap: 8px;
 }
 .icon {
   width: 35px;
