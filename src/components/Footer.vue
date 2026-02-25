@@ -40,7 +40,7 @@
       <a
         class="contact-box flex add-animation"
         animation-class="come-up"
-        href="mailto:info@alsafwaconstruction.com"
+        href="mailto:ahmed@elsheikh-groups.com"
       >
         <img class="icon" src="../assets/images/email.svg" alt="logo" />
         <p>ahmed@elsheikh-groups.com</p>
