@@ -129,7 +129,6 @@ export default {
   FOOTER: {
     ADDRESS: "El Shorouk City, 2nd District East",
     SAUDI: "Cairo",
-    FOLLOW_US: "Follow us",
   },
 
   CONTACT: "Contact Us",

@@ -130,7 +130,6 @@ export default {
   FOOTER: {
     ADDRESS: "مدينه الشروق الحي الثانى شرق",
     SAUDI: "القاهرة",
-    FOLLOW_US: "تابعنا علي الفيسبوك",
   },
   CONTACT: "التواصل",
   PHONE_NUMBER: "+966 56 973 4699",

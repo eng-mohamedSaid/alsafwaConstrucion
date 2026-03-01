@@ -55,8 +55,8 @@
           <a class="navbar-link" href="#services">{{
             $t("NAVBAR.SERVICES")
           }}</a>
-          <!-- <a class="navbar-link" href="#about">{{ $t("NAVBAR.WHO_US") }}</a> -->
           <a class="navbar-link" href="#contact">{{ $t("NAVBAR.CONTACT") }}</a>
+          <social-cards></social-cards>
         </nav>
       </div>
     </transition>
@@ -66,6 +66,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
+import SocialCards from "./ui/SocialCards.vue";
 
 const i18n = useI18n();
 const expandNav = ref(false);

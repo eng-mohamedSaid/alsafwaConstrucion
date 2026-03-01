@@ -45,21 +45,15 @@
         <img class="icon" src="../assets/images/email.svg" alt="logo" />
         <p>ahmed@elsheikh-groups.com</p>
       </a>
-
-      <a
-        class="contact-box flex add-animation"
-        animation-class="come-up"
-        href="https://www.facebook.com/share/1AffA8QHsg"
-        target="_blank"
-      >
-        <img class="icon" src="../assets/images/facebook.svg" alt="Facebook" />
-        <p>{{ $t("FOOTER.FOLLOW_US") }}</p>
-      </a>
+      
+      <social-cards></social-cards>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import SocialCards from './ui/SocialCards.vue';
+</script>
 
 <style scoped>
 .footer {
